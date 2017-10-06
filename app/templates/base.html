@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>{{ head_title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Mukta|Satisfy" rel="stylesheet">
+        <style>
+            body {
+                margin: 0px;
+                font-family: 'Mukta', sans-serif;
+            }
+            .everything {
+                width: 960px;
+                margin: 0 auto;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .topimage {
+                margin: auto;
+                padding: 10px 0px;
+            }
+            .topimage img {
+                display: block;
+                margin: auto;
+                width: 20%;
+            }
+            .topbar {
+                text-align: center;
+                background-color: #3434A3;
+                color: white;
+            }
+            .topbar ul {
+                margin: 0px;
+                padding: 0px;
+            }
+            .topbar ul li {
+                padding: 10px 5px;
+                display: inline-block;
+            }
+            .topbar ul a:active {
+                display: inline-block;
+                background-color: orange;
+            }
+            .title_box {
+                text-align: center;
+                background-color: rgba(0, 0, 0, .10);
+            }
+            .title_box h1 {
+                margin: 0px;
+                padding: 5px;
+                font-family: serif;
+            }
+            .title_box h2 {
+                margin: 0px;
+                padding: 5px;
+                font-family: 'Satisfy', cursive;
+                font-weight: normal;
+            }
+            .main {
+                display: flex;
+                width: 100%;
+            }
+            .sidebar {
+                flex-grow: 0;
+                width: 33%;
+                padding: 10px;
+                background-color: #3434A3;
+                color: white;
+            }
+            .news {
+                /* width: 67%; */
+                flex-grow: 1;
+                padding: 10px;
+                background-color: white;
+                margin-left: auto;
+            }
+            .bottom {
+                text-align: center;
+                color: white;
+                background-color: #3434A3;
+            }
+            .bottom p {
+                margin: 0px;
+                padding: 10px;
+            }
+            .sidebar h3 {
+                margin: 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="everything">
+            <div class="topimage">
+                <img src="static/city_seal.jpg" alt="Seal of the City of Oviedo">
+            </div>
+            <div class="topbar">
+                <ul>
+                    {% for text in topbar_links %}
+                    <a><li>{{ text }}</li></a>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="title_box">
+                <h1>{{ page_title }}</h1>
+                <h2>{{ page_subtitle }}</h2>
+            </div>
+            <div class="main">
+                <div class="sidebar">
+                    {% for group in sidebar_links %}
+                    <h3>{{ group.title }}</h3>
+                    <ul>
+                        {% for text in group.sublinks %}
+                        <li>{{ text }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endfor %}
+                </div>
+                <div class="news">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            <div class="bottom">
+                <p>City of Oviedo, Florida • 400 Alexandria Blvd. • Oviedo, FL 32765 • Phone: (407) 971-5550</p>
+                <p>Please Note: Under Florida law, e-mail addresses are public records. If you do not want your e-mail address released in response to a public records request, do not send electronic mail to the City of Oviedo. Instead contact the City of Oviedo by phone or in writing.</p>
+            </div>
+        </div>
+    </body>
+</html>
