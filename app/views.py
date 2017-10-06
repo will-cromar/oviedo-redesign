@@ -44,8 +44,8 @@ topbar_links = [
 
 settings = {
     "head_title": "City of Oviedo",
-    "page_title": "CITY OF OVIEDO, FLORIDA",
-    "page_subtitle": "Growing in the right direction",
+    "page_title": "CITY OF OVIEDO, FL",
+    "page_subtitle": "\"Growing in the right direction\"",
     "topbar_links": topbar_links,
     "sidebar_links": sidebar_links,
 }
