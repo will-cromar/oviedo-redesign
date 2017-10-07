@@ -124,15 +124,21 @@
             </div>
             <div class="topbar">
                 <ul>
-                    {% for text in topbar_links %}
+                    {% for text, sublinks in topbar_links %}
+                    {% if sublinks %}
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">{{ text }}</a>
+                        <a class="dropbtn">{{ text }}</a>
                         <div class="dropdown-content">
-                            <a href="#" onclick="alert(1)">Link 1</a>
-                            <a href="#" onclick="alert(2)">Link 2</a>
-                            <a href="#" onclick="alert(3)">Link 3</a>
+                        {% for sublink in sublinks %}
+                            <a href="#" onclick="alert('{{sublink}}')">{{sublink}}</a>
+                        {% endfor %}
                         </div>
                     </li>
+                    {% else %}
+                    <li class="dropdown">
+                        <a href="#" onclick="alert('{{text}}')" class="dropbtn">{{text}}</a>
+                    </li>
+                    {% endif %}
                     {% endfor %}
                 </ul>
             </div>
@@ -142,10 +148,10 @@
             </div>
             <div class="main">
                 <div class="sidebar">
-                    {% for group in sidebar_links %}
-                    <h3>{{ group.title }}</h3>
+                    {% for title, sublinks in sidebar_links %}
+                    <h3>{{ title }}</h3>
                     <ul>
-                        {% for text in group.sublinks %}
+                        {% for text in sublinks %}
                         <li>{{ text }}</li>
                         {% endfor %}
                     </ul>
