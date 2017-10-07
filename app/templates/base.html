@@ -130,7 +130,7 @@
                     {% for text, sublinks in topbar_links %}
                     {% if sublinks %}
                     <li class="dropdown">
-                        <a class="dropbtn">{{ text }}</a>
+                        <a href="javascript:void(0)" class="dropbtn">{{ text }}</a>
                         <div class="dropdown-content">
                         {% for sublink in sublinks %}
                             <a href="#" onclick="alert('{{sublink}}')">{{sublink}}</a>
