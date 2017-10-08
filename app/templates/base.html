@@ -5,7 +5,10 @@
         <style>
             body {
                 margin: 0px;
+                
+                /* Default font setttings */
                 font-family: 'Mukta', sans-serif;
+                font-size: 12pt;
             }
             .everything {
                 width: 960px;
@@ -69,7 +72,7 @@
             }
             .title_box {
                 text-align: center;
-                background-color: rgba(0, 0, 0, .10);
+                background-color: rgba(0, 0, 0, .075);
             }
             .title_box h1 {
                 margin: 0px;
@@ -99,9 +102,29 @@
             .news {
                 /* width: 67%; */
                 flex-grow: 1;
-                padding: 10px;
+                padding: 0 0 0 10px;
                 background-color: white;
                 margin-left: auto;
+            }
+            .news h1 {
+                text-align: center;
+                color: white;
+                font-size: 28pt;
+                background-color: #2c2163;
+                margin: 0;
+                padding: 15px 0;
+            }
+            .news h2 {
+                text-align: center;
+                font-size: 24pt;
+                background-color: rgba(0, 0, 0, .075);
+                margin: 0;
+                padding: 10px 0;
+            }
+            .news h3 {
+                font-size: 20pt;
+                margin: 0;
+                padding: 10px 0;
             }
             .bottom {
                 text-align: center;
@@ -163,6 +186,7 @@
                     {% endfor %}
                 </div>
                 <div class="news">
+                    <h1>NEWS</h1>
                     {% block content %}{% endblock %}
                 </div>
             </div>
