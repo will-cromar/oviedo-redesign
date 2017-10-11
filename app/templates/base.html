@@ -11,7 +11,7 @@
                 font-size: 12pt;
             }
             .everything {
-                width: 960px;
+                width: 1000px;
                 margin: 0 auto;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             }
@@ -48,6 +48,10 @@
             }
             li.dropdown {
                 display: inline-block;
+            }
+            .downarrow:after {
+                content: '\f0d7';
+                margin-left: 5px;
             }
             .dropdown-content {
                 display: none;
@@ -153,7 +157,7 @@
                     {% for text, sublinks in topbar_links %}
                     {% if sublinks %}
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">{{ text }}</a>
+                        <a href="javascript:void(0)" class="dropbtn downarrow">{{ text }}</a>
                         <div class="dropdown-content">
                         {% for sublink in sublinks %}
                             <a href="#" onclick="alert('{{sublink}}')">{{sublink}}</a>
