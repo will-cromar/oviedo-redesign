@@ -14,7 +14,7 @@ sidebar_links = [
         "Great Day in the Country",
         "Halloween Events",
         "Carnival of Screams",
-        "Teenie Weenei Haloween",
+        "Teenie Weenie Haloween",
         "12 Days of Christmas",
         "Snow Mountain",
         "Santa Around Town",
@@ -27,11 +27,6 @@ sidebar_links = [
         "Utility Emergency Information",
         "Property Assessed Clean Energy Program",
     ]),
-    ("Public Works", [
-        "Public Works Home",
-        "Water Conservation",
-
-    ])
 ]
 topbar_links = [
     ("Home", None),
@@ -49,6 +44,7 @@ topbar_links = [
         "New Resident Information",
         "Sister City Information",
         "Publications and Reports",
+        "Flood Zone Map",
     ]),
     ("City Departments", [
         "City Manager",
@@ -94,7 +90,6 @@ topbar_links = [
         "Friends of Oviedo",
         "Volunteer Opportunities",
         "Employment",
-        "Flood Zone Map",
     ]),
 ]
 
