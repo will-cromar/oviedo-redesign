@@ -2,8 +2,24 @@
 <html>
     <head>
         <title>{{ head_title }}</title>
-        <link href="https://fonts.googleapis.com/css?family=Mukta|Satisfy" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Mukta|Satisfy" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Lora:700|Mukta:400,700|Satisfy" rel="stylesheet">
         <style>
+            :root {
+                --vibrant: #f9a825;
+                --muted: #37474f;
+                --darkvibrant: #7e6438;
+                --darkmuted: #616161;
+                --lightvibrant: #eeeeee;
+                --lightmuted: #78909c;
+
+                --light-text: white;
+                --dark-text: black;
+                
+                /* Non-material spec colors */
+                --card-background: #f9f9f9;
+                --card-background-highlighted: #f1f1f1;
+            }
             body {
                 margin: 0px;
                 
@@ -11,8 +27,11 @@
                 font-family: 'Mukta', sans-serif;
                 font-size: 12pt;
             }
+            a {
+                color: var(--darkvibrant);
+            }
             .everything {
-                width: 1000px;
+                width: 1024px;
                 margin: 0 auto;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             }
@@ -27,25 +46,29 @@
             }
             .topbar {
                 text-align: center;
-                background-color: #2c2163;
-                color: white;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
             }
             .topbar ul {
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
                 overflow: hidden;
-                background-color: #2c2163;
+                background-color: var(--muted);
+                color: var(--light-text);
             }
             .dropbtn {
                 display: inline-block;
-                color: white;
                 text-align: center;
                 padding: 14px;
                 text-decoration: none;
+                color: var(--light-text);
             }
             .dropdown:hover .dropbtn {
-                background-color: orange;
+                background-color: var(--vibrant);
+                color: var(--dark-text);
             }
             li.dropdown {
                 display: inline-block;
@@ -57,10 +80,10 @@
             .dropdown-content {
                 display: none;
                 position: absolute;
-                background-color: #f9f9f9;
                 min-width: 160px;
                 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                 z-index: 1;
+                background-color: var(--card-background);
             }
             .dropdown-content a {
                 color: black;
@@ -77,12 +100,16 @@
             }
             .title_box {
                 text-align: center;
-                background-color: rgba(0, 0, 0, .075);
+                background-color: var(--muted);
+                color: var(--light-text);
+                padding: 8px;
             }
             .title_box h1 {
                 margin: 0px;
+                margin-top: 64px;
                 padding: 5px;
-                font-family: serif;
+                /* font-family: serif; */
+                font-family: 'Lora', serif;
                 font-kerning: none;
                 letter-spacing: 1px;
             }
@@ -91,7 +118,7 @@
                 padding: 5px;
                 font-family: 'Satisfy', cursive;
                 font-weight: normal;
-                font-size: 28;
+                font-size: 28px;
             }
             .main {
                 display: flex;
@@ -101,23 +128,27 @@
                 flex-grow: 0;
                 min-width: 25%;
                 padding: 10px;
-                background-color: #2c2163;
-                color: white;
+                background-color: var(--lightvibrant);
+                color: var(--dark-text);
+            }
+            .sidebar-link a {
+                color: var(--dark-text);
             }
             .news {
                 /* width: 67%; */
                 flex-grow: 1;
                 padding: 0 0 0 10px;
-                background-color: white;
                 margin-left: auto;
+                background-color: var(--light-text);
             }
             .news h1 {
+                display: none;
                 text-align: center;
-                color: white;
                 font-size: 28pt;
-                background-color: #2c2163;
                 margin: 0;
                 padding: 15px 0;
+                background-color: var(--muted);
+                color: var(--dark-text);
             }
             .news h2 {
                 text-align: center;
@@ -134,7 +165,7 @@
             .bottom {
                 text-align: center;
                 color: white;
-                background-color: #2c2163;
+                background-color: var(--darkmuted);
             }
             .bottom p {
                 margin: 0px;
@@ -143,16 +174,10 @@
             .sidebar h3 {
                 margin: 0px;
             }
-            .sidebar-link a {
-                color: white;
-            }
         </style>
     </head>
     <body>
         <div class="everything">
-            <div class="topimage">
-                <img src="static/city_seal.jpg" alt="Seal of the City of Oviedo">
-            </div>
             <div class="topbar">
                 <ul>
                     {% for text, sublinks in topbar_links %}
@@ -175,6 +200,9 @@
             </div>
             <div class="title_box">
                 <h1>{{ page_title }}</h1>
+                <div class="topimage">
+                    <img src="static/oviedo_city_seal.png" alt="Seal of the City of Oviedo">
+                </div>
                 <h2>{{ page_subtitle }}</h2>
             </div>
             <div class="main">
