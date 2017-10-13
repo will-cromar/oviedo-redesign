@@ -5,6 +5,14 @@ from app import app
 # Oviedo on the Park
 # Contact Us
 # E-mail news sign-up
+colors = {
+    "mm": "#01579b",
+    "ml": "#4f83cc",
+    "md": "#002f6c",
+    "vv": "#f9a825",
+    "vl": "#ffd95a",
+    "vd": "#c17900",
+}
 
 sidebar_links = [
     ("Events", [
@@ -13,13 +21,7 @@ sidebar_links = [
         "Food Truck Thursdays",
         "Great Day in the Country",
         "Halloween Events",
-        "Carnival of Screams",
-        "Teenie Weenie Haloween",
-        "12 Days of Christmas",
-        "Snow Mountain",
-        "Santa Around Town",
-        "Breakfast with Santa",
-        "Santa Calling"
+        "Christmas Events",
     ]),
     ("Utilities", [
         "Pay Your Utility Bill",
@@ -27,24 +29,19 @@ sidebar_links = [
         "Utility Emergency Information",
         "Property Assessed Clean Energy Program",
     ]),
+    ("Getting Involved", [
+        "Friends of Oviedo",
+        "Volunteer Opportunities",
+        "Employment",
+    ]),
 ]
 topbar_links = [
     ("Home", None),
-    ("Information", [
+    ("About Oviedo", [
         "About Oviedo",
         "History",
         "Demographics",
         "Frequently Asked Questions",
-        "Garbage FAQs",
-        "Irrigation Schedules",
-        "Senior Safety Program",
-        "Resident Information",
-        "Accessibility",
-        "For Business",
-        "New Resident Information",
-        "Sister City Information",
-        "Publications and Reports",
-        "Flood Zone Map",
     ]),
     ("City Departments", [
         "City Manager",
@@ -86,10 +83,17 @@ topbar_links = [
         "Economic Development",
         "Community Redevelopment Agency Documents",
     ]),
-    ("Getting Involved", [
-        "Friends of Oviedo",
-        "Volunteer Opportunities",
-        "Employment",
+    ("Information", [
+        "Garbage FAQs",
+        "Irrigation Schedules",
+        "Senior Safety Program",
+        "Resident Information",
+        "Accessibility",
+        "For Business",
+        "New Resident Information",
+        "Sister City Information",
+        "Publications and Reports",
+        "Flood Zone Map",
     ]),
 ]
 
@@ -99,9 +103,14 @@ settings = {
     "page_subtitle": "\"Growing in the right direction\"",
     "topbar_links": topbar_links,
     "sidebar_links": sidebar_links,
+    "colors": colors,
 }
 
 
 @app.route("/")
 def index():
     return render_template("main.html", **settings)
+
+@app.route("/material")
+def material():
+    return render_template("material.html", **settings)
