@@ -2,17 +2,14 @@ from flask import render_template
 from app import app
 
 # Links that still need a home:
-# Oviedo on the Park
 # Contact Us
 # E-mail news sign-up
-colors = {
-    "mm": "#01579b",
-    "ml": "#4f83cc",
-    "md": "#002f6c",
-    "vv": "#f9a825",
-    "vl": "#ffd95a",
-    "vd": "#c17900",
-}
+
+icon_urls = [
+    "/static/oviedo_orange.png",
+    "/static/oviedo_tree.png",
+    "/static/oviedo_something.png",
+]
 
 sidebar_links = [
     ("Events", [
@@ -22,18 +19,18 @@ sidebar_links = [
         "Great Day in the Country",
         "Halloween Events",
         "Christmas Events",
-    ]),
+    ], icon_urls[0]),
     ("Utilities", [
         "Pay Your Utility Bill",
         "High Water Usage?",
         "Utility Emergency Information",
         "Property Assessed Clean Energy Program",
-    ]),
+    ], icon_urls[1]),
     ("Getting Involved", [
         "Friends of Oviedo",
         "Volunteer Opportunities",
         "Employment",
-    ]),
+    ], icon_urls[2]),
 ]
 topbar_links = [
     ("Home", None),
@@ -103,14 +100,9 @@ settings = {
     "page_subtitle": "\"Growing in the right direction\"",
     "topbar_links": topbar_links,
     "sidebar_links": sidebar_links,
-    "colors": colors,
 }
 
 
 @app.route("/")
 def index():
     return render_template("main.html", **settings)
-
-@app.route("/material")
-def material():
-    return render_template("material.html", **settings)

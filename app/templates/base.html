@@ -2,21 +2,20 @@
 <html>
     <head>
         <title>{{ head_title }}</title>
-        <!-- <link href="https://fonts.googleapis.com/css?family=Mukta|Satisfy" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/css?family=Lora:700|Mukta:400,700|Satisfy" rel="stylesheet">
+        <link rel="shortcut icon" href="/static/chicken_icon.png" />
         <style>
             :root {
                 --vibrant: #f9a825;
                 --muted: #37474f;
-                --darkvibrant: #7e6438;
+                --darkvibrant: #c17900;
                 --darkmuted: #616161;
-                --lightvibrant: #eeeeee;
+                --lightneutral: #eeeeee;
                 --lightmuted: #78909c;
 
                 --light-text: white;
                 --dark-text: black;
                 
-                /* Non-material spec colors */
                 --card-background: #f9f9f9;
                 --card-background-highlighted: #f1f1f1;
             }
@@ -26,6 +25,7 @@
                 /* Default font setttings */
                 font-family: 'Mukta', sans-serif;
                 font-size: 12pt;
+                color: var(--dark-text);
             }
             a {
                 color: var(--darkvibrant);
@@ -42,7 +42,7 @@
             .topimage img {
                 display: block;
                 margin: auto;
-                width: 20%;
+                width: 17%;
             }
             .topbar {
                 text-align: center;
@@ -108,7 +108,6 @@
                 margin: 0px;
                 margin-top: 64px;
                 padding: 5px;
-                /* font-family: serif; */
                 font-family: 'Lora', serif;
                 font-kerning: none;
                 letter-spacing: 1px;
@@ -123,22 +122,41 @@
             .main {
                 display: flex;
                 width: 100%;
+                margin: 8px 0;
             }
             .sidebar {
                 flex-grow: 0;
                 min-width: 25%;
                 padding: 10px;
-                background-color: var(--lightvibrant);
-                color: var(--dark-text);
+                border-right-width: 2px;
+                border-right-style: solid;
+                border-right-color: var(--darkmuted);
+            }
+            .sidebar-heading {
+                display: flex;
+                align-items: center;
+            }
+            .sidebar-heading h3 {
+                display: inline-block;
+                /* font-size: 14pt; */
+            }
+            .sidebar-heading img {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                margin-right: 4px;
+            }
+            .sidebar ul {
+                padding-left: 29px;
+                margin: 8px 0px;
+                list-style: none;
             }
             .sidebar-link a {
-                color: var(--dark-text);
+                color: var(--darkmuted);
             }
             .news {
-                /* width: 67%; */
                 flex-grow: 1;
-                padding: 0 0 0 10px;
-                margin-left: auto;
+                padding: 0 12px;
                 background-color: var(--light-text);
             }
             .news h1 {
@@ -153,7 +171,7 @@
             .news h2 {
                 text-align: center;
                 font-size: 24pt;
-                background-color: rgba(0, 0, 0, .075);
+                background-color: var(--lightneutral);
                 margin: 0;
                 padding: 10px 0;
             }
@@ -165,7 +183,7 @@
             .bottom {
                 text-align: center;
                 color: white;
-                background-color: var(--darkmuted);
+                background-color: var(--muted);
             }
             .bottom p {
                 margin: 0px;
@@ -207,8 +225,11 @@
             </div>
             <div class="main">
                 <div class="sidebar">
-                    {% for title, sublinks in sidebar_links %}
-                    <h3>{{ title }}</h3>
+                    {% for title, sublinks, icon_url in sidebar_links %}
+                    <div class="sidebar-heading">
+                        <img src="{{ icon_url }}">
+                        <h3>{{ title }}</h3>
+                    </div>
                     <ul>
                         {% for text in sublinks %}
                         <li class="sidebar-link">
