@@ -91,6 +91,7 @@ topbar_links = [
         "Sister City Information",
         "Publications and Reports",
         "Flood Zone Map",
+        "Contact Information",
     ]),
 ]
 
